@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 无法联网,配置的本地路径 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    
+   xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	classpath:org/springframework/beans/factory/xml/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	classpath:org/springframework/context/config/spring-context.xsd
+	http://www.springframework.org/schema/aop 
+	classpath:org/springframework/aop/config/spring-aop.xsd
+	http://www.springframework.org/schema/mvc 
+	classpath:org/springframework/web/servlet/config/spring-mvc.xsd
+	http://www.springframework.org/schema/tx 
+	classpath:org/springframework/transaction/config/spring-tx.xsd
+	">
+        
+	<!-- 引入jdbc.properties配置文件 
+	
+	<context:property-placeholder location="classpath:jdbc.properties" /> 
+	
+	<context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true"/>
+	-->
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="location" value="classpath:jdbc.properties" />  
+    </bean>
+    
+	
+	<!-- 数据源 -->
+	<bean id="datasource"
+		class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="validationQuery" value="true"></property>
+		<!-- 配置初始化大小、最小、最大 -->
+		<property name="initialSize" value="2" />
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="50" />
+		<!-- 配置获取连接等待超时的时间 -->
+		<property name="maxWait" value="60000" />
+		<!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+	</bean>
+
+	<!-- SqlSessionFactory对象,需要数据源，需要mybatis自身的配置，需要xml映射文件的引入 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="datasource"></property>
+		<!-- 嵌入mybatis自身的配置 -->
+		<property name="configLocation"
+			value="classpath:mybatis-config.xml"></property>
+		<property name="mapperLocations">
+			<value>classpath:com/javasm/*/dao/mapper/*.xml</value>
+		</property>
+		<!-- 配置mybatis分页插件 -->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<!-- 分页参数合理化 -->
+						<value>reasonable=true</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+		
+		
+	</bean>
+
+	<!-- dao接口的代理对象的自动创建,并交给spring管理。 不交给spring的话，service层依赖的dao对象注入失败。 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 对指定包下的接口自动创建代理对象，交给spring管理 -->
+		<property name="basePackage" value="com.javasm.*.dao"></property>
+		<!--  
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		-->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+
+	<!-- 事务 :spring-jdbc.jar,事务的实现-->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource"></property>
+	</bean>
+	
+	<!-- 1.声明式事务管理 ：在service层方法上加入@Transactional-->
+	<tx:annotation-driven proxy-target-class="true"
+		transaction-manager="transactionManager" />	
+		
+	<!-- 2.配置事务 -->
+	<!-- 配置事务生效规则，比如：对addXXXX,updateXXXX,delXXXX,insertXXXX,updXXXX -->
+	<tx:advice id="txadvice"
+		transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED"/>
+			<tx:method name="insert*" propagation="REQUIRED"/>
+			<tx:method name="del*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED"/>
+			<tx:method name="remove*" propagation="REQUIRED"/>
+			<tx:method name="upd*" propagation="REQUIRED"/>
+			<tx:method name="update*" propagation="REQUIRED"/>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="*list" propagation="SUPPORTS" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>	
+		
+		
+		
+	<!-- 配置切入点，把事务织入到指定切入点 -->	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.javasm.*.service.*.*(..))" id="thePointcut" />
+		<aop:advisor advice-ref="txadvice" pointcut-ref="thePointcut" />
+	</aop:config>
+		
+		
+
+
+</beans>

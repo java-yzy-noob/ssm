@@ -1,0 +1,9 @@
+14:37:51.859 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited
+14:44:51.365 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited
+14:59:50.410 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited
+16:48:27.662 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited
+16:55:39.831 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited
+10:18:30.732 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited
+21:06:51.070 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited
+22:22:01.211 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited
+17:04:28.591 INFO  com.alibaba.druid.support.logging.Log4j2Impl 106 info - {dataSource-1} inited

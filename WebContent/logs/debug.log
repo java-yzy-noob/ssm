@@ -1,0 +1,62 @@
+14:37:52.516 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+14:44:52.118 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+14:59:51.072 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+16:48:28.505 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+16:55:40.575 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+10:18:31.392 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+10:18:44.453 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: SELECT count(0) FROM good 
+10:18:44.481 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:44.501 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 1
+10:18:44.508 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: select * from good LIMIT 3,3 
+10:18:44.508 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:44.512 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 3
+10:18:45.788 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: SELECT count(0) FROM good 
+10:18:45.795 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:45.796 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 1
+10:18:45.798 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: select * from good LIMIT 6,3 
+10:18:45.798 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:45.801 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 3
+10:18:46.528 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: SELECT count(0) FROM good 
+10:18:46.528 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:46.528 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 1
+10:18:46.528 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: select * from good LIMIT 9,3 
+10:18:46.528 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:46.528 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 2
+10:18:47.382 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: SELECT count(0) FROM good 
+10:18:47.386 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:47.388 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 1
+10:18:47.389 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: select * from good LIMIT 3 
+10:18:47.389 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:47.391 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 3
+10:18:48.290 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: SELECT count(0) FROM good 
+10:18:48.291 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:48.291 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 1
+10:18:48.291 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: select * from good LIMIT 9,3 
+10:18:48.291 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:18:48.291 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 2
+10:23:03.938 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: SELECT count(0) FROM good 
+10:23:03.944 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:23:03.946 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 1
+10:23:03.949 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: select * from good LIMIT 9,3 
+10:23:03.950 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:23:03.952 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 2
+10:23:04.601 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: SELECT count(0) FROM good 
+10:23:04.601 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:23:04.608 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 1
+10:23:04.608 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: select * from good LIMIT 9,3 
+10:23:04.608 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:23:04.608 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 2
+10:23:06.358 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: SELECT count(0) FROM good 
+10:23:06.362 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:23:06.365 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 1
+10:23:06.368 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: select * from good LIMIT 3 
+10:23:06.369 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: 
+10:23:06.372 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==      Total: 3
+21:06:51.769 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+22:22:01.801 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+22:22:34.876 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: insert into user values (null, ?, ?) 
+22:22:34.915 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: aaa(String), bbb(String)
+22:24:01.405 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==>  Preparing: insert into user values (null, ?, ?) 
+22:24:01.405 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - ==> Parameters: aaa(String), bbb(String)
+22:24:01.442 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 145 debug - <==    Updates: 1
+17:04:29.433 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.

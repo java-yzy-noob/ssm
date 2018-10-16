@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<classPathEntry
+		location="C:\Users\SM02\eclipse-workspace666\MyFirstSSMProject\WebContent\WEB-INF\lib\mysql-connector-java-5.1.40-bin.jar" />
+	<context id="context1" targetRuntime="MyBatis3">
+		<!-- 去除文档注释 -->
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+
+		<!-- 数据库连接信息 -->
+		<jdbcConnection connectionURL="jdbc:mysql://localhost/student" 
+		driverClass="com.mysql.jdbc.Driver" password="qwerty" userId="yzy" />
+		
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+
+		</javaTypeResolver>
+		<!-- 实体类的生成配置，生成的目标位置 -->
+		<javaModelGenerator
+			targetPackage="com.javasm.goods.entity" targetProject="MyFirstSSMProject/src" />
+			
+		<!-- 映射文件的生成配置 -->
+		<sqlMapGenerator targetPackage="com.javasm.goods.dao"
+			targetProject="MyFirstSSMProject/src" />
+			
+		<!-- 接口的生成配置 -->
+		<javaClientGenerator
+			targetPackage="com.javasm.goods.dao" targetProject="MyFirstSSMProject/src"
+			type="XMLMAPPER" />
+			
+		<!-- 对数据库里哪张表生成配置 -->
+		<table tableName="good" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false" />
+
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 无法联网,配置的本地路径 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    
+   xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	classpath:org/springframework/beans/factory/xml/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	classpath:org/springframework/context/config/spring-context.xsd
+	http://www.springframework.org/schema/aop 
+	classpath:org/springframework/aop/config/spring-aop.xsd
+	http://www.springframework.org/schema/mvc 
+	classpath:org/springframework/web/servlet/config/spring-mvc.xsd
+	">
+        
+	
+	
+	
+	<context:component-scan base-package="com.javasm" use-default-filters="false"> 
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<!-- 配置静态资源目录:location: -->
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+	
+	<!-- 自动把 RequestMappingHandlerMapping，RequestMappingHandlerAdapter加入springMVC容器，支持mvc注解。 
+		  有这个就可以不用配置映射器
+	-->
+	<mvc:annotation-driven>	
+	<!-- 配置json的消息转换器 -->
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper"></bean>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<!-- 拦截器
+	<mvc:interceptors>
+		<bean class="com.javasm.interceptor.MyInterceptor"></bean>
+		<bean class="com.javasm.interceptor.LoginInterceptor"></bean>	
+	</mvc:interceptors>
+	 -->
+	
+	<!--	
+	<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+	-->
+	
+	
+	<!-- 文件上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="30000000"></property>
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="uploadTempDir" value="upload/temp"></property>
+	</bean>
+	
+	
+	
+	
+	
+	<!-- 配置映射器  RequestMappingHandlerMapping 
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+	-->	
+	<!-- 配置视图解析器    InternalResourceViewResolver -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+
+	
+	
+</beans>

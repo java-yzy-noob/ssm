@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 无法联网,配置的本地路径 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    
+   xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	classpath:org/springframework/beans/factory/xml/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	classpath:org/springframework/context/config/spring-context.xsd
+	http://www.springframework.org/schema/aop 
+	classpath:org/springframework/aop/config/spring-aop.xsd
+	http://www.springframework.org/schema/mvc 
+	classpath:org/springframework/web/servlet/config/spring-mvc.xsd
+	">
+	
+	<!-- 嵌入spring-mybatis集成文件 -->
+	<import resource="classpath:spring-mybatis.xml"/>
+	
+	<import resource="classpath:spring-quartz.xml"/>
+	
+	
+<!-- 扫描指定包及子包下的autoWired、Resource、Controller用来注解控制层的类、Service用来注解服务层、Repository用来注解dao层、Component其他
+	 能够取代自动装配context:annotation-config标签
+ -->
+	
+	<context:component-scan base-package="com.javasm">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<!-- 对aop 配置自动生成动态代理对象 -->
+	<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+	
+	<!-- 切面
+	<bean id="xmlAspect" class="com.javasm.user.aspect.UserAspect"></bean>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* com.javasm.*.service.*.*(..))" id="thePointcut" />
+		<aop:aspect id="theAspect" ref="xmlAspect">
+			<aop:before method="beforeMethod" pointcut-ref="thePointcut"/>
+			<aop:after method="afterMethod" pointcut-ref="thePointcut"/>
+			<aop:after-returning method="afterReturningMethod" pointcut-ref="thePointcut"/>
+			<aop:after-throwing method="afterThrowingMethod" pointcut-ref="thePointcut"/>
+			
+		</aop:aspect>
+	</aop:config>
+	
+	 -->
+	
+</beans>
